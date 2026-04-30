@@ -18,3 +18,5 @@ export * from './cost-regional.types';
 export * from './cost-material-signal.types';
 export * from './cost-data-provenance.types';
 export * from './cost-response.types';
+export * from './carbon-response.types';
+export * from './carbon-epd.types';

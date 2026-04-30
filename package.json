@@ -1,6 +1,6 @@
 {
   "name": "@ectropy/construction-commercial-context",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Public construction-commercial domain context schemas for @ectropy/schemas universal decision log",
   "type": "module",
   "main": "./types/index.ts",
