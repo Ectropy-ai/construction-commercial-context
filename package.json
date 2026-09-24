@@ -22,7 +22,9 @@
     "url": "https://github.com/Ectropy-ai/construction-commercial-context.git"
   },
   "publishConfig": {
-    "access": "public"
+    "registry": "https://registry.npmjs.org",
+    "access": "public",
+    "provenance": true
   },
   "peerDependencies": {
     "@ectropy/schemas": "^0.4.0"
