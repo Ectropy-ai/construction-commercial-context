@@ -20,6 +20,10 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    # Must equal the environment named on the npm trusted publisher
+    # (package settings -> Trusted Publisher: construction-commercial); npm
+    # rejects an OIDC token whose environment claim differs.
+    environment: construction-commercial
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
