@@ -18,13 +18,15 @@
  * - "partial"  — a country resolver matched but one or more of its layers
  *                failed (named in missingLayers). Returned fields are real;
  *                absent ones are unknown, not empty.
- * - "no_data"  — no registered country resolver covers the point (outside
- *                the US and Canada, or open water). Only timeZone is set.
+ * - "no_data"  — no area covers the point (open water). Only timeZone is set.
  */
 export type JurisdictionDataStatus = 'live' | 'partial' | 'no_data';
 
-/** Registered country resolvers. New countries add a value here. */
-export type JurisdictionResolverId = 'us-census' | 'ca-statcan';
+/**
+ * Which resolver answered: 'overture' is the global baseline (any country);
+ * the others are national resolvers selected by the baseline's country.
+ */
+export type JurisdictionResolverId = 'overture' | 'us-census' | 'ca-statcan';
 
 /** Which Census layer a CBSA came from. */
 export type CbsaType = 'metropolitan' | 'micropolitan';
@@ -41,6 +43,43 @@ export interface JurisdictionSource {
   readonly licence: string | null;
   /** Response field names this source supplied. */
   readonly fields: readonly string[];
+}
+
+/** Country-agnostic role of an area (a US state and a Canadian province are both 'subdivision'). */
+export type JurisdictionAreaLevel =
+  | 'country'
+  | 'subdivision'
+  | 'county'
+  | 'locality'
+  | 'sublocality'
+  | 'statistical'
+  | 'market'
+  | 'labor-market'
+  | 'time-zone';
+
+/**
+ * One jurisdiction.areas[] entry (project-site 1.3.0). scheme ids come from
+ * schemas.luh.tech/ectropy/site/jurisdiction-schemes.json, e.g.
+ * 'iso3166-2', 'us-census-county-fips', 'ca-statcan-er-2021',
+ * 'overture-division-locality'.
+ */
+export interface JurisdictionArea {
+  readonly scheme: string;
+  readonly level: JurisdictionAreaLevel;
+  readonly code: string;
+  readonly name?: string | null;
+  readonly parentCode?: string | null;
+  readonly source: {
+    readonly provider: string;
+    readonly dataset: string;
+    readonly method: 'point-in-polygon' | 'national-api' | 'geocoder' | 'authored';
+    readonly boundaryVintage?: string | null;
+    /** SPDX id where one exists; per boundary for sources whose licence varies. */
+    readonly licence?: string | null;
+    /** Attribution the licence requires, verbatim. */
+    readonly attribution?: string | null;
+  };
+  readonly resolvedAt?: string | null;
 }
 
 export interface JurisdictionResolutionResponse {
@@ -83,6 +122,8 @@ export interface JurisdictionResolutionResponse {
   readonly timeZone: string | null;
 
   readonly sources: readonly JurisdictionSource[];
+  /** The canonical, global form: every area the point lies in, one per scheme. */
+  readonly areas: readonly JurisdictionArea[];
   /** Layers of the matched resolver that failed; empty unless dataStatus is partial. */
   readonly missingLayers: readonly string[];
   readonly dataStatus: JurisdictionDataStatus;
@@ -90,4 +131,31 @@ export interface JurisdictionResolutionResponse {
   readonly resolvedAt: string;
   /** True when served from cis-jurisdiction's resolution store rather than resolved upstream on this call. */
   readonly cached: boolean;
+}
+
+/** How a postal address became a point (POST /api/v1/jurisdiction/resolve-address). */
+export interface JurisdictionGeocode {
+  /** e.g. "US Census Bureau Geocoder", "OpenStreetMap Nominatim". */
+  readonly provider: string;
+  readonly dataset: string;
+  readonly licence: string | null;
+  readonly attribution: string | null;
+  readonly matchedAddress: string;
+  readonly latitude: number;
+  readonly longitude: number;
+  /** ISO 3166-1 alpha-2. */
+  readonly country: string | null;
+}
+
+/**
+ * Wire shape of POST /api/v1/jurisdiction/resolve-address. geocode and
+ * resolution are null when no geocoder matched; failedGeocoders names
+ * geocoders that were unreachable (null with failures is unknown, not
+ * "no such address").
+ */
+export interface AddressResolutionResponse {
+  readonly address: string;
+  readonly geocode: JurisdictionGeocode | null;
+  readonly failedGeocoders: readonly string[];
+  readonly resolution: JurisdictionResolutionResponse | null;
 }
