@@ -29,6 +29,9 @@ All types are exported from a single entrypoint, `types/index.ts`, grouped below
 **Carbon Intelligence Service** (mirrors `cis-carbon`)
 - `carbon-response.types.ts`, `carbon-epd.types.ts` — Environmental Product Declaration (EPD) response shapes, e.g. `ProductEpdResponse`
 
+**Jurisdiction Service** (mirrors `cis-jurisdiction`)
+- `jurisdiction-response.types.ts` — site point → administrative and market keys (county FIPS, CBSA, municipality, Canadian census division / economic region / CMA, IANA time zone) with per-source provenance, e.g. `JurisdictionResolutionResponse`
+
 ## Install
 
 ```sh
@@ -49,7 +52,7 @@ There is no build step: the package is consumed as TypeScript source (`main`/`ty
 
 ## Versioning
 
-Current version: `0.3.0`. See `git log` for the type-contract history (cost types landed in v0.2.0, carbon types in v0.3.0).
+Current version: `0.4.0`. See `git log` for the type-contract history (cost types landed in v0.2.0, carbon types in v0.3.0, jurisdiction types in v0.4.0).
 
 ## License
 

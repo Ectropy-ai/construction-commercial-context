@@ -20,3 +20,4 @@ export * from './cost-data-provenance.types';
 export * from './cost-response.types';
 export * from './carbon-response.types';
 export * from './carbon-epd.types';
+export * from './jurisdiction-response.types';
