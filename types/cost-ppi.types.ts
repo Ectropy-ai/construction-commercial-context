@@ -1,7 +1,6 @@
 /**
  * Row types for cost.ppi_series and cost.ppi_value (tables).
  * BLS Producer Price Index ingestion layer.
- * Source: cis_intelligence, migration cost/001.
  */
 
 /** Registry of BLS PPI series known to the cost service. */

@@ -1,5 +1,5 @@
 /**
- * Product Environmental Product Declaration (EPD) record from cis-carbon.
+ * Product Environmental Product Declaration (EPD) record.
  * Mirrors services/carbon/src/routes/product_epd.py:ProductEpdResponse.
  *
  * Wire shape returned by GET /api/v1/carbon/product/{productId}/epd.

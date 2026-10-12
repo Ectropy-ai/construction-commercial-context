@@ -1,7 +1,7 @@
 /**
  * Row type for bpc.assembly_cost_composite (view).
  * PPI signal channel — weighted BLS Producer Price Index per assembly.
- * Source: cis_intelligence, migration 004. All fields nullable (computed view).
+ * All fields are nullable.
  */
 export interface BpcAssemblyCostComposite {
   readonly assemblyId: string | null;

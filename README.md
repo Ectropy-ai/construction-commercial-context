@@ -18,18 +18,18 @@ All types are exported from a single entrypoint, `types/index.ts`, grouped below
 - `construction-trigger-context.types.ts`, `construction-action.types.ts`, `construction-evidence.types.ts`, `construction-participants.types.ts`, `construction-outcome-context.types.ts` — the trigger/action/evidence/participants/outcome shapes that compose a construction-commercial decision event
 
 **BPC (Building Product Catalog) intelligence**
-- `bpc-enums.types.ts` — enums mirrored from the `bpc` Postgres schema in `cis_intelligence` (quantity units, assembly categories, etc.)
+- `bpc-enums.types.ts` — building-product catalog vocabularies (quantity units, assembly categories, etc.)
 - `bpc-assembly-bom.types.ts`, `bpc-labor-schedule.types.ts`, `bpc-product-price.types.ts` — bill-of-materials, labor, and pricing shapes
 - `bpc-cost-composite.types.ts`, `bpc-cost-grounded.types.ts` — dual-channel assembly cost types (PPI-composite vs. product-grounded)
 
-**Cost Intelligence Service** (mirrors the service on port 5009)
+**Cost**
 - `cost-response.types.ts` — consumer-facing response shapes for the cost routes, including the combined `DualChannelPricingResponse`
 - `cost-ppi.types.ts`, `cost-regional.types.ts`, `cost-material-signal.types.ts`, `cost-data-provenance.types.ts` — PPI, regional-factor, material-signal, and provenance shapes feeding those responses
 
-**Carbon Intelligence Service** (mirrors `cis-carbon`)
+**Carbon**
 - `carbon-response.types.ts`, `carbon-epd.types.ts` — Environmental Product Declaration (EPD) response shapes, e.g. `ProductEpdResponse`
 
-**Jurisdiction Service** (mirrors `cis-jurisdiction`)
+**Jurisdiction**
 - `jurisdiction-response.types.ts` — site point → administrative and market keys (county FIPS, CBSA, municipality, Canadian census division / economic region / CMA, IANA time zone) with per-source provenance, e.g. `JurisdictionResolutionResponse`
 
 ## Install

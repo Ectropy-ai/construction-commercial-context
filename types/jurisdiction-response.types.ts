@@ -1,9 +1,9 @@
 /**
- * Site jurisdiction resolution from cis-jurisdiction (port 5011).
+ * Site jurisdiction resolution.
  * Mirrors services/jurisdiction/src/routes/resolve.py:JurisdictionResolutionResponse.
  *
  * Wire shape returned by GET /api/v1/jurisdiction/resolve?lat={lat}&lon={lon}.
- * cis-jurisdiction uses alias_generator=to_camel so fields are camelCase on the wire.
+ * Fields are camelCase on the wire.
  *
  * Field names match the jurisdiction block of the canonical project-site
  * record (schemas.luh.tech/ectropy/site/project-site.schema.json v1.2.0), so a
@@ -129,7 +129,7 @@ export interface JurisdictionResolutionResponse {
   readonly dataStatus: JurisdictionDataStatus;
   /** ISO 8601 timestamp of the upstream resolution (not of this response). */
   readonly resolvedAt: string;
-  /** True when served from cis-jurisdiction's resolution store rather than resolved upstream on this call. */
+  /** True when served from a stored resolution rather than resolved upstream on this call. */
   readonly cached: boolean;
 }
 

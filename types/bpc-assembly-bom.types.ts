@@ -3,7 +3,7 @@ import type { AssemblyCategory, ZoneType, FaceDesignation, QtyUnit } from './bpc
 /**
  * Row type for bpc.assembly_bom (view).
  * Flat bill-of-materials: one row per product layer within an assembly.
- * Source: cis_intelligence, migration 001. All fields nullable (computed view).
+ * All fields are nullable.
  */
 export interface BpcAssemblyBomRow {
   readonly assemblyId: string | null;

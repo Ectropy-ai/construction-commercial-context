@@ -3,7 +3,7 @@ import type { BpcAssemblyCostGrounded } from './bpc-cost-grounded.types';
 import type { AssemblyCategory } from './bpc-enums.types';
 
 /**
- * Response types for the Cost Intelligence Service (port 5009).
+ * Cost response types.
  * These are the consumer-facing shapes returned by the 9 cost routes.
  * Workstream D routes must return shapes assignable to these types.
  */

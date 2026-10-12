@@ -4,7 +4,7 @@ import type { AssemblyCategory } from './bpc-enums.types';
  * Row type for bpc.assembly_cost_grounded (view).
  * Product-anchored cost channel — per-assembly cost rolled up from
  * bpc.product_price through the layer/zone/assembly hierarchy.
- * Source: cis_intelligence, migration 201. All fields nullable (computed view).
+ * All fields are nullable.
  */
 export interface BpcAssemblyCostGrounded {
   readonly assemblyId: string | null;

@@ -1,7 +1,5 @@
 /**
- * Enum types mirroring PostgreSQL enum types defined in the bpc schema
- * of cis_intelligence. Values match DB enum labels exactly.
- * Source of truth: cis-services-1, migration 001–201.
+ * Building-product catalog vocabularies.
  */
 
 /** bpc.qty_unit — bill-of-materials quantity units */

@@ -4,7 +4,6 @@ import type { QtyUnit } from './bpc-enums.types';
  * Row type for bpc.product_price (table).
  * Product-anchored pricing row. Sparse by design — coverage grows as
  * manufacturer scrapes and customer-loaded prices populate the table.
- * Source: cis_intelligence, migration 201.
  */
 export interface BpcProductPrice {
   readonly id: string;

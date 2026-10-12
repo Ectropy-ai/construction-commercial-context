@@ -1,7 +1,6 @@
 /**
  * Row type for cost.regional_adjustment (table).
  * ENR regional cost adjustment factors applied to baseline PPI prices.
- * Source: cis_intelligence, migration cost/001.
  */
 export interface CostRegionalAdjustment {
   readonly id: string;
