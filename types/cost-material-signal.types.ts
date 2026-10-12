@@ -2,7 +2,6 @@
  * Row type for cost.material_cost_signal (table).
  * Per-material cost signal aggregates combining PPI series with
  * optional regional and supplier data.
- * Source: cis_intelligence, migration cost/001.
  */
 export interface CostMaterialCostSignal {
   readonly id: string;

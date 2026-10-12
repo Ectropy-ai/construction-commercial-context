@@ -1,7 +1,6 @@
 /**
  * Row type for cost.data_provenance (table).
  * Lineage record linking cost data rows to their source systems.
- * Source: cis_intelligence, migration cost/001.
  */
 export interface CostDataProvenance {
   readonly id: string;

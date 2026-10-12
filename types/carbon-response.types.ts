@@ -1,9 +1,9 @@
 /**
- * Assembly embodied carbon response from cis-carbon (port 5010).
+ * Assembly embodied carbon response.
  * Mirrors services/carbon/src/routes/assembly_carbon.py:AssemblyCarbonResponse.
  *
  * Wire shape returned by GET /api/v1/carbon/assembly/{code}.
- * cis-carbon uses alias_generator=to_camel so fields are camelCase on the wire.
+ * Fields are camelCase on the wire.
  */
 
 /**

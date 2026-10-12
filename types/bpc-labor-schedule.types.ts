@@ -3,7 +3,7 @@ import type { LaborPhase, QtyUnit, ZoneType } from './bpc-enums.types';
 /**
  * Row type for bpc.assembly_labor_schedule (view).
  * Labor operations per assembly, ordered by sequence.
- * Source: cis_intelligence, migration 003. All fields nullable (computed view).
+ * All fields are nullable.
  */
 export interface BpcLaborScheduleRow {
   readonly assemblyId: string | null;
